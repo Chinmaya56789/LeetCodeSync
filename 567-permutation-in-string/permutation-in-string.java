@@ -22,7 +22,7 @@ class Solution {
             }
             right ++;
 
-            System.out.println("Out : "+ right +" char : "+c +" map : "+ map1 );
+            //System.out.println("Out : "+ right +" char : "+c +" map : "+ map1 );
             if (right -left >s1.length()){
 
                 c = s2.charAt(left);
@@ -34,7 +34,7 @@ class Solution {
 
             }
              left ++;
-            System.out.println("In : "+ left + " map : "+ map1 );
+            //System.out.println("In : "+ left + " map : "+ map1 );
            
             }
 
