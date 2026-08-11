@@ -7,7 +7,7 @@ class Solution {
         int start  =0 ;
         int  end =  1 ;
 
-        int count =1;
+        int count =0;
         while (end < nums.length){
             while (end <nums.length && nums[end] == nums[start ]){
                 end ++;
@@ -19,6 +19,6 @@ class Solution {
 
         }
     
-        return count-1;
+        return count;
     }
 }
