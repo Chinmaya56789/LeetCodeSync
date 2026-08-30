@@ -12,7 +12,6 @@ class Solution {
             while (start < end  && end < nums.length){
                 int localSum = nums[i] + nums[start] +nums[end];
                 if ( localSum == 0){
-                    System.out.println( i +" -" + start + " -" + end );
                 ans.add (new ArrayList<Integer>(Arrays.asList(nums[i] ,nums[start] ,nums[end] )));
                 start ++;
                 end --; 
