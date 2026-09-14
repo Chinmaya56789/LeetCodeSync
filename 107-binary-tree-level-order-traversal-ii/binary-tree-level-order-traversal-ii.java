@@ -18,7 +18,8 @@ class Solution {
         if (root == null)
         return new ArrayList<List<Integer>>() ;
 
-        Deque<List<Integer>> levels = new ArrayDeque<List<Integer>>();
+        //Deque<List<Integer>> levels = new ArrayDeque<List<Integer>>();
+        List<List<Integer>> levels = new LinkedList<List<Integer>>();
         
         Queue<TreeNode> queue = new ArrayDeque<TreeNode>();
         queue.add(root);
@@ -37,16 +38,11 @@ class Solution {
                     queue.add(currentNode.right);
             }
 
-            levels.push(currentLevel);
+            levels.addFirst(currentLevel);
 
         }
 
-        List<List<Integer>> ans = new ArrayList<List<Integer>>();
-
-        while (levels.size()>0){
-            ans.add(levels.pop());
-        }
-        return ans ;
+        return levels ;
 
     }
 }
