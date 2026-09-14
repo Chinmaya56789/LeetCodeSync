@@ -32,21 +32,15 @@ class Solution {
 
         while (queue.size()> 0){
             
-            Node lastNode = queue.poll();
+          
             int memberCounts = queue.size();
-
-            if (lastNode.left != null)
-                queue.offer(lastNode.left);
-            if(lastNode.right != null)
-                queue.offer(lastNode.right);
-
-            
+            Node prev = null;            
 
 
             for (int i =0; i< memberCounts ;i ++){
                 Node node = queue.poll();
-                lastNode.next = node ;
-                lastNode =node ;
+                if (prev != null ) prev.next = node ;
+                prev =node ;
 
                 if (node.left != null)
                 queue.offer(node.left);
