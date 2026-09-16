@@ -10,30 +10,22 @@ class Solution {
     public void backtrack (List<String> ans  , StringBuilder sb , char[] s ,int index){
         if( sb.length() == s.length){
             ans.add(sb.toString());
-
             return;
         }
-
-       
-
-            char c = s[index];
+        char c = s[index];
 
              if (Character.isDigit(c) ){
                 sb.append(c);
                 backtrack (ans , sb, s ,index +1 );
                 sb.deleteCharAt(sb.length()-1 );
-
              }
-             else{   
-                     
+             else{         
             c = Character.toUpperCase(c);
-
             sb.append(c);
             backtrack (ans , sb, s ,index +1 );
             sb.deleteCharAt(sb.length()-1 );
 
             c = Character.toLowerCase(c);
-
             sb.append(c);
             backtrack (ans , sb, s ,index +1 );
             sb.deleteCharAt(sb.length()-1 );
