@@ -1,35 +1,28 @@
+import java.util.*;
+
 class Solution {
     public List<String> letterCasePermutation(String s) {
-        List<String> ans = new ArrayList<String>();
-
-        backtrack(ans , new StringBuilder(), s.toCharArray() , 0 );
-        
-        return ans ;
+        List<String> ans = new ArrayList<>();
+        backtrack(ans, s.toCharArray(), 0);
+        return ans;
     }
 
-    public void backtrack (List<String> ans  , StringBuilder sb , char[] s ,int index){
-        if( sb.length() == s.length){
-            ans.add(sb.toString());
+    private void backtrack(List<String> ans, char[] s, int index) {
+        if (index == s.length) {
+            ans.add(new String(s));
             return;
         }
-        char c = s[index];
 
-             if (Character.isDigit(c) ){
-                sb.append(c);
-                backtrack (ans , sb, s ,index +1 );
-                sb.deleteCharAt(sb.length()-1 );
-             }
-             else{         
-            c = Character.toUpperCase(c);
-            sb.append(c);
-            backtrack (ans , sb, s ,index +1 );
-            sb.deleteCharAt(sb.length()-1 );
+        if (Character.isDigit(s[index])) {
+            backtrack(ans, s, index + 1);
+        } else {
+            // Lowercase branch
+            s[index] = Character.toLowerCase(s[index]);
+            backtrack(ans, s, index + 1);
 
-            c = Character.toLowerCase(c);
-            sb.append(c);
-            backtrack (ans , sb, s ,index +1 );
-            sb.deleteCharAt(sb.length()-1 );
-             }
-        
+            // Uppercase branch
+            s[index] = Character.toUpperCase(s[index]);
+            backtrack(ans, s, index + 1);
+        }
     }
 }
